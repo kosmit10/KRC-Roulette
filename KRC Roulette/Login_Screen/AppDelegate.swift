@@ -1,18 +1,23 @@
-//
-//  AppDelegate.swift
-//  KRC Roulette
-//
-//  Created by maciura on 05/10/24.
-//
+import UIKit
+import Firebase
+import GoogleSignIn
+import FirebaseAuth
 
-import SwiftUI
 
-struct AppDelegate: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
+
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
+        // Configure Firebase
+        FirebaseApp.configure()
+        return true
     }
-}
 
-#Preview {
-    AppDelegate()
-}
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
+    }}
