@@ -30,9 +30,13 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color(.black)
+            Image("background_home")
+                .resizable()
+                .ignoresSafeArea()
+                .frame(width: 500, height: 900)
+            Color.black.opacity(0.7)
             if showShadow {
-                LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.5), Color.white.opacity(0.001)]), startPoint: .bottom, endPoint: .top)
+                LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.7), Color.white.opacity(0.001)]), startPoint: .bottom, endPoint: .top)
                     .frame(height: UIScreen.main.bounds.height / 1)
                     .cornerRadius(20, corners: [.topLeft, .topRight])
                     .offset(y: UIScreen.main.bounds.height / 2)

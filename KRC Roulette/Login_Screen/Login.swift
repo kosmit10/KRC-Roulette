@@ -17,12 +17,13 @@ struct Login: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Image("background_login")
+                Image("Designer-3")
+                    .resizable()
+                    .ignoresSafeArea()
+                    .frame(width: 500, height: 900)
                 Color.black.opacity(0.3)
-                    .scaledToFit()
-                    .padding()
                 ZStack {
-                    Image("Login-screen")
+                    Image("new_black")
                         .resizable()
                         .frame(width: 370, height: 270)
                     Color.black.opacity(0.1)
