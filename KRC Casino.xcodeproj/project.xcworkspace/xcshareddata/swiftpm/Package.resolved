@@ -1,5 +1,5 @@
 {
-  "originHash" : "08264a1e0afa59a9070e04eea035c4026effc6875bc23a75225cdbdef897d566",
+  "originHash" : "5460b85102e503189d306334928ba36b449a1298499a7e9a1c317cfb02946b48",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/app-check.git",
       "state" : {
-        "revision" : "21fe1af9be463a359aaf8d96789ef73fc3760d09",
-        "version" : "11.0.1"
+        "revision" : "87dd288fc792bf9751e522e171a47df5b783b0b8",
+        "version" : "11.1.0"
       }
     },
     {
@@ -143,15 +143,6 @@
       "state" : {
         "revision" : "540318ecedd63d883069ae7f1ed811a2df00b6ac",
         "version" : "2.4.0"
-      }
-    },
-    {
-      "identity" : "rive-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/rive-app/rive-ios.git",
-      "state" : {
-        "revision" : "be819a07262fad37737919ce774d3bd4be2aa3ac",
-        "version" : "6.1.5"
       }
     },
     {

@@ -30,7 +30,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Image("background_home")
+            Image("background_start")
                 .resizable()
                 .ignoresSafeArea()
                 .frame(width: 500, height: 900)
@@ -87,7 +87,7 @@ struct ContentView: View {
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
                 withAnimation {
                     showLottieAnimation = false
-                    showShadow = true // Po zakończeniu animacji, pokaż cień
+                    showShadow = true
                 }
             }
         }

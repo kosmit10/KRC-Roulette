@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		63DEA5CC2CAEAE7000940D16 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5CB2CAEAE7000940D16 /* Lottie */; };
-		63DEA5CF2CAEAEC600940D16 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5CE2CAEAEC600940D16 /* RiveRuntime */; };
 		63DEA5D22CAEAF2B00940D16 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5D12CAEAF2B00940D16 /* FirebaseAuth */; };
 		63DEA5D52CAEAF7200940D16 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5D42CAEAF7200940D16 /* GoogleSignIn */; };
 		63DEA5D72CAEAF7200940D16 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5D62CAEAF7200940D16 /* GoogleSignInSwift */; };
@@ -35,7 +34,6 @@
 				63DEA5CC2CAEAE7000940D16 /* Lottie in Frameworks */,
 				63DEA5D52CAEAF7200940D16 /* GoogleSignIn in Frameworks */,
 				63DEA5D22CAEAF2B00940D16 /* FirebaseAuth in Frameworks */,
-				63DEA5CF2CAEAEC600940D16 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +85,6 @@
 			name = "KRC Roulette";
 			packageProductDependencies = (
 				63DEA5CB2CAEAE7000940D16 /* Lottie */,
-				63DEA5CE2CAEAEC600940D16 /* RiveRuntime */,
 				63DEA5D12CAEAF2B00940D16 /* FirebaseAuth */,
 				63DEA5D42CAEAF7200940D16 /* GoogleSignIn */,
 				63DEA5D62CAEAF7200940D16 /* GoogleSignInSwift */,
@@ -111,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 63DEA5B22CAEAD3D00940D16 /* Build configuration list for PBXProject "KRC Roulette" */;
+			buildConfigurationList = 63DEA5B22CAEAD3D00940D16 /* Build configuration list for PBXProject "KRC Casino" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -123,7 +120,6 @@
 			packageReferences = (
 				63DEA5C92CAEAE4C00940D16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				63DEA5CA2CAEAE7000940D16 /* XCRemoteSwiftPackageReference "lottie-ios" */,
-				63DEA5CD2CAEAEC600940D16 /* XCRemoteSwiftPackageReference "rive-ios" */,
 				63DEA5D32CAEAF7200940D16 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -352,7 +348,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		63DEA5B22CAEAD3D00940D16 /* Build configuration list for PBXProject "KRC Roulette" */ = {
+		63DEA5B22CAEAD3D00940D16 /* Build configuration list for PBXProject "KRC Casino" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				63DEA5C42CAEAD3F00940D16 /* Debug */,
@@ -389,14 +385,6 @@
 				minimumVersion = 4.5.0;
 			};
 		};
-		63DEA5CD2CAEAEC600940D16 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rive-app/rive-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.1.5;
-			};
-		};
 		63DEA5D32CAEAF7200940D16 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
@@ -412,11 +400,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63DEA5CA2CAEAE7000940D16 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
-		};
-		63DEA5CE2CAEAEC600940D16 /* RiveRuntime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63DEA5CD2CAEAEC600940D16 /* XCRemoteSwiftPackageReference "rive-ios" */;
-			productName = RiveRuntime;
 		};
 		63DEA5D12CAEAF2B00940D16 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -17,7 +17,7 @@ struct Login: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Image("Designer-3")
+                Image("background_login")
                     .resizable()
                     .ignoresSafeArea()
                     .frame(width: 500, height: 900)
