@@ -12,12 +12,10 @@
 		63DEA5D22CAEAF2B00940D16 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5D12CAEAF2B00940D16 /* FirebaseAuth */; };
 		63DEA5D52CAEAF7200940D16 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5D42CAEAF7200940D16 /* GoogleSignIn */; };
 		63DEA5D72CAEAF7200940D16 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5D62CAEAF7200940D16 /* GoogleSignInSwift */; };
-		63F75FAE2CB1024700CADAD9 /* home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F75FAD2CB1024700CADAD9 /* home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		63DEA5B72CAEAD3D00940D16 /* KRC Roulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KRC Roulette.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		63F75FAD2CB1024700CADAD9 /* home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -47,7 +45,6 @@
 		63DEA5AE2CAEAD3D00940D16 = {
 			isa = PBXGroup;
 			children = (
-				63F75FAB2CB1021F00CADAD9 /* Home_screen */,
 				63DEA5B92CAEAD3D00940D16 /* KRC Roulette */,
 				63DEA5D02CAEAF2B00940D16 /* Frameworks */,
 				63DEA5B82CAEAD3D00940D16 /* Products */,
@@ -67,14 +64,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		63F75FAB2CB1021F00CADAD9 /* Home_screen */ = {
-			isa = PBXGroup;
-			children = (
-				63F75FAD2CB1024700CADAD9 /* home.swift */,
-			);
-			path = Home_screen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +151,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63F75FAE2CB1024700CADAD9 /* home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
