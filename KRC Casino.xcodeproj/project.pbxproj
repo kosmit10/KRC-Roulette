@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63DA12142CC124920009EC5C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 63DA12132CC124920009EC5C /* FirebaseStorage */; };
 		63DEA5CC2CAEAE7000940D16 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5CB2CAEAE7000940D16 /* Lottie */; };
 		63DEA5D22CAEAF2B00940D16 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5D12CAEAF2B00940D16 /* FirebaseAuth */; };
-		63DEA5D52CAEAF7200940D16 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5D42CAEAF7200940D16 /* GoogleSignIn */; };
 		63DEA5D72CAEAF7200940D16 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 63DEA5D62CAEAF7200940D16 /* GoogleSignInSwift */; };
+		63F621082CC122D000572EDA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 63F621072CC122D000572EDA /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +33,8 @@
 			files = (
 				63DEA5D72CAEAF7200940D16 /* GoogleSignInSwift in Frameworks */,
 				63DEA5CC2CAEAE7000940D16 /* Lottie in Frameworks */,
-				63DEA5D52CAEAF7200940D16 /* GoogleSignIn in Frameworks */,
+				63F621082CC122D000572EDA /* FirebaseFirestore in Frameworks */,
+				63DA12142CC124920009EC5C /* FirebaseStorage in Frameworks */,
 				63DEA5D22CAEAF2B00940D16 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,8 +88,9 @@
 			packageProductDependencies = (
 				63DEA5CB2CAEAE7000940D16 /* Lottie */,
 				63DEA5D12CAEAF2B00940D16 /* FirebaseAuth */,
-				63DEA5D42CAEAF7200940D16 /* GoogleSignIn */,
 				63DEA5D62CAEAF7200940D16 /* GoogleSignInSwift */,
+				63F621072CC122D000572EDA /* FirebaseFirestore */,
+				63DA12132CC124920009EC5C /* FirebaseStorage */,
 			);
 			productName = "KRC Roulette";
 			productReference = 63DEA5B72CAEAD3D00940D16 /* KRC Roulette.app */;
@@ -396,6 +399,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		63DA12132CC124920009EC5C /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63DEA5C92CAEAE4C00940D16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		63DEA5CB2CAEAE7000940D16 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63DEA5CA2CAEAE7000940D16 /* XCRemoteSwiftPackageReference "lottie-ios" */;
@@ -406,15 +414,15 @@
 			package = 63DEA5C92CAEAE4C00940D16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		63DEA5D42CAEAF7200940D16 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63DEA5D32CAEAF7200940D16 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
 		63DEA5D62CAEAF7200940D16 /* GoogleSignInSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 63DEA5D32CAEAF7200940D16 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		63F621072CC122D000572EDA /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63DEA5C92CAEAE4C00940D16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

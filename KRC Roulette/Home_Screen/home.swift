@@ -36,6 +36,7 @@ struct home: View {
                         Image("window-home")
                             .resizable()
                             .frame(width: 400, height: 450)
+
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 20) {
                                 ForEach(0..<4) { index in
@@ -58,7 +59,7 @@ struct home: View {
                                             }
                                         } else {
                                             Button(action: {
-                                                // Action for other buttons
+                                                // Akcja dla innych gier
                                             }) {
                                                 Image(index == 1 ? "button_roullete" : index == 2 ? "button_poker" : "button_blackjack")
                                                     .resizable()
@@ -81,19 +82,20 @@ struct home: View {
                     .transition(.move(edge: .bottom))
                 }
             }
-            .navigationBarBackButtonHidden()
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
-struct JackpotView: View {
-    var body: some View {
-        Text("Jackpot View")
-            .font(.largeTitle)
-            .padding()
-    }
-}
+//struct JackpotView: View {
+//    var body: some View {
+//        Text("Jackpot View")
+//            .font(.largeTitle)
+//            .padding()
+//    }
+//}
 
 #Preview {
     home()
 }
+
