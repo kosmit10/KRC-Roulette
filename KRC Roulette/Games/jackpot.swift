@@ -5,6 +5,7 @@ import FirebaseFirestore
 import FirebaseStorage
 
 struct jackpot: View {
+    @State private var showLottieAnimation = true
     @State private var symbols = ["bild", "bonus", "clubs", "diamons", "hearts", "spades", "wild"]
     @State private var isSpinning = false
     @State private var offsets = [CGFloat](repeating: 0, count: 3)
@@ -59,12 +60,20 @@ struct jackpot: View {
                                                     .resizable()
                                                     .frame(width: 70, height: 90)
                                                 VStack {
-                                                    Text("Saldo:")
-                                                    Text(" \(balance)$")
+                                                    if showLottieAnimation {
+                                                        LottieView(animationName: "loading")
+                                                            .frame(width: 100, height: 100)
+                                                            .scaleEffect(1)
+                                                            .padding(.bottom, 30.0)
+                                                    } else {
+                                                        Text("Saldo:")
+                                                        Text(" \(balance)$") // Wyświetlenie salda po animacji
+                                                    }
                                                 }
                                             }
                                         }
                                         .padding(.top, -250.0)
+
                                         HStack {
                                             ForEach(0..<3) { index in
                                                 VStack {
@@ -121,20 +130,24 @@ struct jackpot: View {
                 .ignoresSafeArea()
             }
         }
-        .navigationBarBackButtonHidden()
         .onAppear {
             resetOffsets()
             loadUserProfile()
             fetchUserBalance()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    showLottieAnimation = false
+            }
         }
     }
 
-    // Pobieranie zdjęcia profilowego i balansu z Firebase
     func loadUserProfile() {
         if let user = Auth.auth().currentUser {
             let userId = user.uid
             let storageRef = Storage.storage().reference().child("profileImages/\(userId).jpg")
             storageRef.getData(maxSize: 10 * 1024 * 1024) { data, error in
+                if let error = error {
+                    print("Błąd pobierania obrazu profilowego: \(error.localizedDescription)")
+                }
                 if let data = data, let image = UIImage(data: data) {
                     userProfileImage = image
                 }
@@ -146,13 +159,27 @@ struct jackpot: View {
         guard let userId = Auth.auth().currentUser?.uid else { return }
         let db = Firestore.firestore()
         db.collection("users").document(userId).getDocument { document, error in
+            if let error = error {
+                print("Błąd pobierania balansu: \(error.localizedDescription)")
+                return
+            }
             if let document = document, document.exists {
                 if let userBalance = document.data()?["balance"] as? Int64 {
                     balance = userBalance
                 } else if let userBalance = document.data()?["balance"] as? Int {
-                    // Rzutowanie na 'Int64', jeśli dane w Firestore są w typie 'Int'
                     balance = Int64(userBalance)
                 }
+            } else {
+                // Stwórz dokument, jeśli go nie ma
+                db.collection("users").document(userId).setData(["balance": balance]) { error in
+                    if let error = error {
+                        print("Błąd tworzenia dokumentu: \(error.localizedDescription)")
+                    }
+                }
+            }
+            // Wyłącz animację, gdy dane balansu zostaną pobrane
+            DispatchQueue.main.async {
+                showLottieAnimation = false
             }
         }
     }
@@ -168,7 +195,6 @@ struct jackpot: View {
         db.collection("users").document(userId).updateData(["balance": balance])
     }
 
-    // Funkcja do rozpoczęcia kręcenia
     func startSpinning() {
         isSpinning = true
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
@@ -179,10 +205,8 @@ struct jackpot: View {
         }
     }
 
-    // Losowanie symboli z płynnością animacji
     func spinSymbols() {
         for i in 0..<3 {
-            // Dodaj losowe opóźnienie do zmiany symbolu
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 0.05) {
                 withAnimation(.easeInOut(duration: 0.1)) {
                     results[i] = Int.random(in: 0..<symbols.count)
@@ -191,22 +215,31 @@ struct jackpot: View {
         }
     }
 
-    // Zatrzymanie kręcenia i obliczanie wyniku
     func stopSpinning() {
         timer?.invalidate()
         isSpinning = false
         calculateResult()
     }
 
-    // Obliczenie wyniku na podstawie wylosowanych symboli
     func calculateResult() {
-        let winnings = results.filter { $0 == results.first }.count == 3 ? 100 : -50
-        
-        // Rzutowanie wyniku na 'Int64'
+        let uniqueSymbols = Set(results)
+        var winnings = 0
+
+        if uniqueSymbols.count == 1 {
+            winnings = 200
+        } else if uniqueSymbols.count == 2 {
+            winnings = 50
+        } else {
+            winnings = -50
+        }
+
+        if results.allSatisfy({ symbols[$0] == "wild" }) || results.allSatisfy({ symbols[$0] == "bonus" }) {
+            winnings += 300
+        }
+
         updateUserBalance(by: winnings)
     }
 
-    // Resetowanie przesunięć
     func resetOffsets() {
         for i in 0..<3 {
             offsets[i] = 0
@@ -217,4 +250,3 @@ struct jackpot: View {
 #Preview {
     jackpot()
 }
-
